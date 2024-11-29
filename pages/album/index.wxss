@@ -1,0 +1,143 @@
+page {
+    padding-bottom: 100rpx;
+}
+
+.list {
+    margin-top: 30rpx;
+}
+
+.item {
+    align-items: stretch;
+    display: flex;
+    height: 220rpx;
+    margin-bottom: 40rpx;
+}
+
+.item .photo {
+    background: #f5f7fa;
+    border: 1px solid #f2f2f5;
+    box-sizing: initial;
+    flex: none;
+    height: 220rpx;
+    margin-right: 30rpx;
+    margin-left: 30rpx;
+    width: 176rpx;
+}
+
+.item .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+.item .name {
+    color: #3c464f;
+    font-size: 28rpx;
+    font-weight: 700;
+    line-height: 36rpx;
+    margin-bottom: 4rpx;
+    margin-top: 20rpx;
+}
+
+.item .detail {
+    align-items: center;
+    color: #91979c;
+    display: flex;
+    font-size: 24rpx;
+    margin-bottom: 14rpx;
+}
+
+.item .split {
+    border-right: 1px solid #eaebef;
+    display: inline-block;
+    height: 24rpx;
+    margin: 0 24rpx;
+}
+
+.item .type {
+    border-radius: 4rpx;
+    font-size: 20rpx;
+    height: 36rpx;
+    line-height: 36rpx;
+    text-align: center;
+    width: 80rpx;
+}
+
+.item .type0 {
+    background:  #E8E8FF;
+    color: #BDBDFF;
+}
+
+.date {
+    color: #ccc;
+    font-size: 24rpx;
+}
+
+.empty {
+    color: #91979c;
+    font-size: 26rpx;
+    margin-top: 326rpx;
+    text-align: center;
+}
+
+.empty image {
+    display: block;
+    height: 244rpx;
+    margin: auto auto 16rpx;
+    width: 290rpx;
+}
+
+.btn {
+    background: #8280FF;
+    border-radius: 40rpx;
+    color: #fff;
+    display: block;
+    font-size: 30rpx;
+    font-weight: 700;
+    height: 88rpx;
+    line-height: 88rpx;
+    margin: 80rpx auto;
+    position: relative;
+    width: 350rpx;
+}
+
+.van-swipe-cell__left,
+.van-swipe-cell__right {
+  display: inline-block;
+  width: 65px;
+  height: 220rpx;
+  font-size: 28rpx;
+  line-height: 220rpx;
+  color: #fff;
+  text-align: center;
+  background-color: #8280FF;
+}
+
+.delete-btn {
+    background-color: #8280FF;
+    color: #fff;
+    padding: 10rpx 20rpx;
+    border-radius: 30rpx;
+    font-size: 24rpx;
+    position: absolute;
+    right: 30rpx;
+    bottom: 20rpx;
+    border: none;
+    line-height: 1.5;
+}
+
+.view-btn {
+    background-color: #E8E8FF;
+    color: #8280FF;
+    padding: 10rpx 20rpx;
+    border-radius: 30rpx;
+    font-size: 24rpx;
+    position: absolute;
+    right: 30rpx;
+    bottom: 90rpx; 
+    border: none;
+    line-height: 1.5;
+}

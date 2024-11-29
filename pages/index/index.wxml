@@ -1,0 +1,77 @@
+<view>
+  <!-- 页面顶部标题栏 -->
+  <header nav="false" title="{{title}}"></header>
+
+  <!-- 搜索框 -->
+  <van-search
+    bindtap="navigateTo"
+    data-url="/pages/search/index"
+    shape="round"
+    placeholder="搜索证件照名称、尺寸"
+    style="margin: 0rpx 10rpx;"
+  />
+
+  <!-- 图片布局 -->
+  <view style="display: flex; width: 100%; height: 370rpx; margin: 15rpx 0rpx 30rpx 0rpx;">
+    <view style="margin-left: 35rpx;" bindtap="indexGoNextPage" data-type="0">
+      <image src="../../assets/icon/one-inch.png" style="width: 328rpx; height: 370rpx;"></image>
+    </view>
+    <view style="width: 50%; display: flex; flex-direction: column; margin-left: 26rpx;">
+      <view style="width: 332rpx; height: 172rpx;" bindtap="indexGoNextPage" data-type="1">
+        <image src="../../assets/icon/two-inch.png" style="width: 332rpx; height: 172rpx;"></image>
+      </view>
+      <view style="width: 332rpx; height: 172rpx; margin-top: 29rpx;" bindtap="navigateTo" data-url="/pages/cutout/index">
+        <image src="../../assets/icon/change-bg.png" style="width: 332rpx; height: 172rpx;"></image>
+      </view>
+    </view>
+  </view>
+
+  <!-- 分类 Tab -->
+  <van-tabs
+    active="{{activeTab}}"
+    color="#4E47FD"
+    title-active-color="#4E47FD"
+    line-width="40rpx"
+    ellipsis="false"
+    bind:change="changeTab"
+  >
+    <van-tab title="常用尺寸" name="1" title-style="font-size: 28rpx; font-weight: 700;"></van-tab>
+    <van-tab title="各类证件" name="2" title-style="font-size: 28rpx; font-weight: 700;"></van-tab>
+    <van-tab title="各类签证" name="3" title-style="font-size: 28rpx; font-weight: 700;"></van-tab>
+  </van-tabs>
+
+  <!-- 滚动分页内容区域 -->
+  <scroll-view
+    style="height: calc(100vh - 200rpx);"
+    scroll-y
+    bindscrolltolower="moredata"
+    enhanced
+    show-scrollbar="{{false}}"
+  >
+    <!-- 数据列表 -->
+    <view wx:for="{{photoSizeList}}" wx:key="id" style="margin: 15rpx 35rpx;">
+      <view style="width: 100%; height: 140rpx; margin-top: 30rpx; display: flex; justify-content: center;" bindtap="goNextPage" data-index="{{index}}">
+        <view style="width: 675rpx; height: 132rpx; background: #FFFFFF; box-shadow: 2rpx 1rpx 4rpx 3rpx rgba(52, 51, 51, 0.06); border-radius: 20px; display: flex; flex-direction: row;">
+          <view style="width: 100%; height: 100%; margin-left: 35rpx;">
+            <view style="padding: 24rpx 0rpx 10rpx 5rpx;">
+              <text style="font-weight: 600; font-size: 28rpx; line-height: 39rpx; color: #323232;">{{item.name}}</text>
+            </view>
+            <view style="display: flex; flex-direction: row; justify-content: flex-start;">
+              <view style="height: 30rpx; width: 60rpx; background: #E8E8FF; border-radius: 100rpx;">
+                <text style="color: #BDBDFF; font-size: 20rpx; line-height: 28rpx; display: flex; align-items: center; padding-left: 10rpx;">宽高</text>
+              </view>
+              <text style="font-size: 24rpx; line-height: 34rpx; color: #D3D3D3; margin-left: 16rpx;">{{item.widthMm}}*{{item.heightMm}}mm</text>
+              <view style="height: 30rpx; width: 60rpx; background: #E8E8FF; border-radius: 100rpx; margin-left: 66rpx;">
+                <text style="color: #BDBDFF; font-size: 20rpx; line-height: 28rpx; display: flex; align-items: center; padding-left: 10rpx;">像素</text>
+              </view>
+              <text style="font-size: 24rpx; line-height: 34rpx; color: #D3D3D3; margin-left: 16rpx;">{{item.widthPx}}*{{item.heightPx}}px</text>
+            </view>
+          </view>
+          <view style="width: 80rpx; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+            <image src="../../assets/icon/camera.png" style="width: 44rpx; height: 44rpx;"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

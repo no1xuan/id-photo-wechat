@@ -1,0 +1,15 @@
+<header title="保存图片"></header>
+<view class="wrapper">
+    <view class="top">
+        <view class="image-wrapper">
+            <image class="photo" mode="aspectFit" style="width: 80vw; height: 60vh;" src="{{picUrl}}"></image>
+        </view>
+    </view>
+    <view class="bottom">
+        <view class="specs">
+            <view class="title">电子证件照</view>
+            <view class="infos">{{widthMm}}*{{heightMm}}mm<text></text>{{widthPx}}*{{heightPx}}px</view>
+        </view>
+        <button bindtap="savePicUrlAndImg" class="save-btn">下载</button>
+    </view>
+</view>

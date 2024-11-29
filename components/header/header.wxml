@@ -1,0 +1,17 @@
+<view class="header custom {{fixedTop?'fixed':''}}" style="padding-top:{{statusBarHeight}}px; background: {{background}}; z-index: 10">
+    <view class="navigation" wx:if="{{nav}}">
+        <navigator class="nav" hoverClass="none" openType="navigateBack" wx:if="{{canGoBack&&autoGoBack}}">
+            <image class="navigation-image" src="../../assets/cdn/back.png"></image>
+        </navigator>
+        <view bindtap="back" class="nav" wx:if="{{canGoBack&&!autoGoBack}}">
+            <image class="navigation-image" src="../../assets/cdn/back.png"></image>
+        </view>
+        <text class="navigation-text" wx:if="{{canGoBack&&!small}}">|</text>
+        <navigator class="nav" hoverClass="none" openType="reLaunch" url="../../pages/index/index" wx:if="{{!(small&&canGoBack)}}">
+            <image class="navigation-image" src="../../assets/cdn/home.png"></image>
+        </navigator>
+    </view>
+    <slot></slot>
+    <text class="title" style="margin-right: {{small?80:0}}rpx;color:#{{small?'3C464F':'000'}}" wx:if="{{showTitle}}">{{title}}</text>
+</view>
+<view class="{{!fixedTop?'fixed':''}}" style="height: calc({{statusBarHeight+44}}px)"></view>

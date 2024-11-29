@@ -1,0 +1,19 @@
+<header title="一寸证件照"></header>
+<view class="wrapper">
+    <view class="top">
+        <view class="image-wrapper">
+            <image class="photo" mode="aspectFit" style="width: 80vw; height: 60vh;" src="{{detail.nimg}}"></image>
+        </view>
+    </view>
+    <view class="bottom">
+        <view class="specs">
+          <view class="title">电子证件照</view>
+          <view class="infos">
+            <text>{{detail.size}}</text>
+            <view></view>
+            {{detail.createTime}}
+          </view>
+        </view>
+        <button class="save-btn" bindtap="savePicUrlAndImg">下载</button>
+    </view>
+</view>

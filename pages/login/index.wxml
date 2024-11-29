@@ -1,0 +1,26 @@
+<view class="container">
+
+  <view class="login-content">
+    <!-- 装饰背景元素 -->
+    <view class="bg-circles">
+      <view class="circle circle-1"></view>
+      <view class="circle circle-2"></view>
+      <view class="circle circle-3"></view>
+    </view>
+
+    <!-- 欢迎文字 -->
+    <view class="welcome-text">
+      <text style="font-size: 40rpx; font-weight: bold; color: #333;">{{title}}</text>
+      <text style="font-size: 28rpx; color: #666; margin-top: 20rpx;">让证件照制作更简单</text>
+    </view>
+
+    <!-- 登录按钮 -->
+    <van-button 
+      type="info" 
+      block 
+      color="#8280FF"
+      custom-style="width: 600rpx; height: 88rpx; border-radius: 44rpx; margin-top: 80rpx;"
+      bindtap="login"
+    >快捷登录</van-button>
+  </view>
+</view>

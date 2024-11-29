@@ -1,0 +1,40 @@
+<page-meta pageStyle="background-color:#F5F7FA"></page-meta>
+<view class="wrapper">
+    <header title="预览"></header>
+    <view class="rect">
+        <text class="top-left"></text>
+        <text class="top-right"></text>
+        <text class="bottom-left"></text>
+        <text class="bottom-right"></text>
+        <view class="bg white"></view>
+        <image class="photo" mode="widthFix" src="{{imageData.cimg}}"></image>
+    </view>
+</view>
+<view class="edit-wrapper">
+  <view class="content">
+    <van-tabs active="0" color="#4E47FD" title-active-color="#4E47FD" line-width="40rpx">
+      <van-tab title="背景" name="99" title-style="font-size: 24rpx; font-weight: 700;"></van-tab>
+    </van-tabs>
+    <view class="colors">
+            <view class="color white" bindtap="changeBackgroundColor" data-color="#ffffff"></view>
+            <view class="color blue" bindtap="changeBackgroundColor" data-color="#428eda"></view>
+            <view class="color red" bindtap="changeBackgroundColor" data-color="#D9001B"></view>
+            <view class="color light-blue" bindtap="changeBackgroundColor" data-color="#539fed"></view>
+            <view class="color gray" bindtap="changeBackgroundColor" data-color="#b3b3b3"></view>
+            <view class="color dark-red" bindtap="changeBackgroundColor" data-color="#ac020b"></view>
+            <view class="color navy" bindtap="changeBackgroundColor" data-color="#2c4c80"></view>
+            <view class="color pink" bindtap="changeBackgroundColor" data-color="#ffdad8"></view>
+            <view class="color yellow" bindtap="changeBackgroundColor" data-color="#fef7c6"></view>
+            <view class="color mint" bindtap="changeBackgroundColor" data-color="#d1f0dc"></view>
+            <view class="color purple" bindtap="changeBackgroundColor" data-color="#e4d7f3"></view>
+            <view class="color cyan" bindtap="changeBackgroundColor" data-color="#c0e8e7"></view>
+            <view class="color periwinkle" bindtap="changeBackgroundColor" data-color="#d0ddf5"></view>
+    </view>
+  </view>
+  <view class="bottom">
+    <button class="btn" bindtap="openSavePhoto" data-type="1">保存预览照</button>
+    <button class="btn" bindtap="openSavePhoto" data-type="2">保存高清照</button>
+  </view>
+      <van-dialog id="van-dialog" />
+</view>
+

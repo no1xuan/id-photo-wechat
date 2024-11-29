@@ -1,0 +1,54 @@
+.searchResultContainer {
+  padding: 10rpx;
+}
+
+.resultCard {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+  margin-bottom: 10rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  box-shadow: 0 2rpx 4rpx rgba(0, 0, 0, 0.1);
+}
+
+.resultImage {
+  width: 100rpx;
+  height: 100rpx;
+  margin-right: 10rpx;
+}
+
+.resultInfo {
+  flex: 1;
+  padding: 10rpx;
+}
+
+.resultTitle {
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333;
+}
+
+.resultDetails {
+  font-size: 24rpx;
+  color: #888;
+}
+
+.hotSearchBgView {
+  margin: 20rpx 10rpx 10rpx 10rpx;
+}
+
+.hotSearchTagBgView {
+  padding-left: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.hotSearchTag {
+  width: auto;
+  height: 48rpx;
+  border-radius: 10rpx;
+  padding: 5rpx 25rpx;
+  margin: 10rpx;
+  background: #f7f8fa;
+}

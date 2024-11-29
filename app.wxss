@@ -1,0 +1,61 @@
+page {
+    font-family: PingFangSC-Regular,Microsoft YaHei,HelveticaNeueDeskInterface-Light,Helvetica Neue,Helvetica,STHeiTi,sans-serif;
+    min-height: 100vh;
+}
+
+.container,page {
+    box-sizing: border-box;
+}
+
+.container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    padding: 200rpx 0;
+}
+
+scroll-view,text,view {
+    box-sizing: border-box;
+}
+
+scroll-view::-webkit-scrollbar,view::-webkit-scrollbar {
+    background: transparent!important;
+    height: 0!important;
+    width: 0!important;
+}
+
+scroll-view::-webkit-scrollbar-track,scroll-view::-webkit-scrollbar-track-piece,view::-webkit-scrollbar-track,view::-webkit-scrollbar-track-piece {
+    background: transparent;
+}
+
+.btn {
+    background: transparent;
+    border: none;
+    margin: 0;
+    padding: 0;
+}
+
+.btn:after {
+    display: none;
+}
+
+.modal {
+    background: rgba(0,0,0,.6);
+    bottom: 0;
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 10;
+}
+
+image {
+    height: 0;
+    width: 0;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

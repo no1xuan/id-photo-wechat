@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/search/index",
+    "pages/spec-detail/index",
+    "pages/camera/index",
+    "pages/preview/index",
+    "pages/save-image/index",
+    "pages/album/index",
+    "pages/album-detail/index",
+    "pages/login/index",
+    "pages/cutout/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom",
+    "pageOrientation": "portrait"
+  },
+  "tabBar": {
+    "custom": false,
+    "color": "#B9B9B9",
+    "selectedColor": "#4E47FD",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "assets/icon/index-grey.png",
+        "selectedIconPath": "assets/icon/index-click.png"
+      },
+      {
+        "pagePath": "pages/album/index",
+        "text": "相册",
+        "iconPath": "assets/icon/photo-grey.png",
+        "selectedIconPath": "assets/icon/photo-click.png"
+      }
+    ]
+  },
+  "usingComponents": {
+    "header": "./components/header/header",
+    "van-button": "@vant/weapp/button/index",
+    "van-tab": "@vant/weapp/tab/index",
+    "van-tabs": "@vant/weapp/tabs/index",
+    "van-search": "@vant/weapp/search/index",
+    "van-icon": "@vant/weapp/icon/index",
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+    "van-dialog": "@vant/weapp/dialog/index"
+  },
+  "sitemapLocation": "sitemap.json",
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  }
+}

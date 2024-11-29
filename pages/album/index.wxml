@@ -1,0 +1,34 @@
+<header nav="false" title="我的照片"></header>
+<view wx:if="{{authorized}}">
+  <view class="list">
+    <view wx:for="{{ workList }}" wx:key="id">
+      <van-swipe-cell right-width="65">
+        <view class="item" data-index="{{index}}">
+          <image class="photo" lazyLoad="true" mode="aspectFit" src="{{item.nimg}}"></image>
+          <view class="right">
+            <view>
+                <view class="name">{{item.name}}</view>
+                <view class="detail">
+                    <text>ID：{{item.id}}</text>
+                    <text class="split"></text>
+                    <text>{{item.size}}</text>
+                </view>
+                <view class="type type0">电子版</view>
+            </view>
+            <view class="date">{{item.createTime}}</view>
+            <button class="view-btn" bindtap="gotoDetail" data-index="{{index}}">查看</button>
+            <button class="delete-btn" bindtap="handleDelete" data-index="{{index}}">删除</button>
+          </view>
+        </view>
+      </van-swipe-cell>
+    </view>
+    <!-- 分页加载更多 -->
+    <view wx:if="{{hasMore}}" class="load-more" bindtap="loadMore">加载更多</view>
+  </view>
+</view>
+<tab-shadow></tab-shadow>
+<view class="empty" wx:if="{{!authorized}}">
+    <image src="../../assets/cdn/empty-album.png"></image>
+    <view>您还没有登录哦~</view>
+    <button class="btn" bindtap="goLogin">去登录</button>
+</view>

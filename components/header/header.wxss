@@ -1,0 +1,69 @@
+.header {
+    box-sizing: initial;
+    color: #3c464f;
+    font-size: 34rpx;
+    font-weight: 700;
+    height: 44px;
+    line-height: 44px;
+    position: fixed;
+    top: 0;      
+    left: 0;
+    width: 100%;
+    text-align: center;
+    z-index: 100; 
+}
+
+.navigation {
+    align-items: center;
+    background: #fff;
+    border: 1px solid #ebebeb;
+    border-radius: 28px;
+    bottom: 8px;
+    color: #ebebeb;
+    display: flex;
+    font-weight: 100;
+    height: 28px;
+    justify-content: center;
+    left: 15rpx;
+    line-height: 0;
+    position: absolute;
+}
+
+.navigation-text {
+    display: inline;
+    flex: none;
+    font-size: 16px;
+    margin: 0;
+}
+
+.navigation-image {
+    height: 16px;
+    width: 16px;
+}
+
+.nav {
+    height: 16px;
+    width: 38px;
+}
+
+.fixed {
+    left: 0;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: -100;
+}
+
+.title {
+    display: inline-block;
+    max-width: 390rpx;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media screen and (min-width:600px) {
+    .header {
+        font-size: 20px;
+    }
+}

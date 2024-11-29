@@ -1,0 +1,42 @@
+<header title="智能抠图"></header>
+<view class="main" style="top:88px">
+  <view class="rect white" wx:if="{{isGenerated==1 || isGenerated==2}}">
+    <text class="top-left"></text>
+    <text class="top-right"></text>
+    <text class="bottom-left"></text>
+    <text class="bottom-right"></text>
+    <view class="upload-photo" wx:if="{{isGenerated==1}}" bindtap="chooseImage">
+        <image src="../../assets/cdn/plus-gray.png" style="width: 96rpx; height: 96rpx;"></image>
+        <view style="font-size: 28rpx">上传照片</view>
+    </view>
+    <view class="upload-photo" wx:if="{{isGenerated==2}}">
+        <image src="../../assets/cdn/right-black.png" style="width: 96rpx; height: 96rpx;"></image>
+        <view style="font-size: 28rpx">上传成功</view>
+    </view>
+  </view>
+    <image wx:if="{{isGenerated==3}}" src="{{uploadedImageUrl}}" mode="aspectFit" class="uploaded-image"></image>
+</view>
+<view class="bottom" wx:if="{{isGenerated==1 || isGenerated==2}}">
+    <view class="dpi-title">DPI设置：</view>
+    <view class="dpi-input">
+      <van-field
+        value="{{ dpi }}"
+        type="number"
+        input-align="center"
+        border="{{ false }}"
+        custom-style="background: #F5F7FA; border-radius: 32rpx; padding: 10rpx 24rpx"
+        placeholder="非必填（默认300）"
+        bindinput="onDpiInput"
+      />
+    </view>
+    <view class="btn-wrapper">
+      <button class="btn btn-blue" bindtap="imageDivision">生成</button>
+    </view>
+</view>
+
+<view class="bottom" wx:if="{{isGenerated==3}}">
+    <view class="btn-wrapper">
+      <button class="btn btn-back" bindtap="handleBack">返回</button>
+      <button class="btn btn-download" bindtap="downloadPic">下载</button>
+    </view>
+</view>

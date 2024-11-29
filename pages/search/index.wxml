@@ -1,0 +1,59 @@
+<header title="搜索规格"></header>
+<view style="display: flex; flex-direction: column;">
+  <van-search
+    value="{{searchValue}}"
+    bind:change="onSearchChange"
+    shape="round"
+    placeholder="搜索证件照名称、尺寸"
+    style="margin: 0rpx 10rpx;"
+  />
+
+  <!-- 热门搜索区域 -->
+  <view wx:if="{{!searchValue}}">
+    <view class="hotSearchBgView">
+      <view style="display: flex; flex-direction: row; margin: 0rpx 0rpx 20rpx 30rpx;">
+        <van-icon name="fire" color="#ec7575" />
+        <view style="font-weight: 700; margin-left: 10rpx;">热门搜索</view>
+      </view>
+      <view class="hotSearchTagBgView">
+        <view class="hotSearchTag" bindtap="onHotSearch" data-value="一寸">
+          <text style="font-size: 24rpx;line-height: 24rpx;">一寸</text>
+        </view>
+        <view class="hotSearchTag" bindtap="onHotSearch" data-keyword="二寸">
+          <text style="font-size: 24rpx;line-height: 24rpx;">二寸</text>
+        </view>
+        <view class="hotSearchTag" bindtap="onHotSearch" data-keyword="小一寸">
+          <text style="font-size: 24rpx;line-height: 24rpx;">小一寸</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 搜索结果区域 -->
+  <scroll-view style="height: calc(100vh - 200rpx);" scroll-y bindscrolltolower="onReachBottom" enhanced show-scrollbar="{{false}}">
+    <view wx:for="{{photoSizeList}}" wx:key="id" style="margin: 15rpx 35rpx;">
+      <view style="width: 100%; height: 140rpx; margin-top: 30rpx; display: flex; justify-content: center;" bindtap="goNextPage" data-index="{{index}}">
+        <view style="width: 675rpx; height: 132rpx; background: #FFFFFF; box-shadow: 2rpx 1rpx 4rpx 3rpx rgba(52, 51, 51, 0.06); border-radius: 20px; display: flex; flex-direction: row;">
+          <view style="width: 100%; height: 100%; margin-left: 35rpx;">
+            <view style="padding: 24rpx 0rpx 10rpx 5rpx;">
+              <text style="font-weight: 600; font-size: 28rpx; line-height: 39rpx; color: #323232;">{{item.name}}</text>
+            </view>
+            <view style="display: flex; flex-direction: row; justify-content: flex-start;">
+              <view style="height: 30rpx; width: 60rpx; background: #E8E8FF; border-radius: 100rpx;">
+                <text style="color: #BDBDFF; font-size: 20rpx; line-height: 28rpx; display: flex; align-items: center; padding-left: 10rpx;">宽高</text>
+              </view>
+              <text style="font-size: 24rpx; line-height: 34rpx; color: #D3D3D3; margin-left: 16rpx;">{{item.widthMm}}*{{item.heightMm}}mm</text>
+              <view style="height: 30rpx; width: 60rpx; background: #E8E8FF; border-radius: 100rpx; margin-left: 66rpx;">
+                <text style="color: #BDBDFF; font-size: 20rpx; line-height: 28rpx; display: flex; align-items: center; padding-left: 10rpx;">像素</text>
+              </view>
+              <text style="font-size: 24rpx; line-height: 34rpx; color: #D3D3D3; margin-left: 16rpx;">{{item.widthPx}}*{{item.heightPx}}px</text>
+            </view>
+          </view>
+          <view style="width: 80rpx; height: 100%; display: flex; flex-direction: column; justify-content: center;">
+            <image src="../../assets/icon/camera.png" style="width: 44rpx; height: 44rpx;"></image>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>

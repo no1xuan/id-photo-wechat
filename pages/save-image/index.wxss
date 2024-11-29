@@ -1,0 +1,93 @@
+page {
+    padding-bottom: 140rpx;
+}
+
+.wrapper {
+    background: #fff;
+    border-radius: 24rpx;
+    box-shadow: 0 4rpx 30rpx 0 rgba(0,0,0,.1);
+    margin: 40rpx;
+    overflow: hidden;
+    width: 670rpx;
+}
+
+.wrapper .top {
+    display: flex;
+    justify-content: center;
+    padding: 50rpx 40rpx;
+}
+
+.wrapper .image-wrapper {
+    font-size: 0;
+    position: relative;
+}
+
+.watermark {
+    bottom: -54rpx;
+    height: 200rpx;
+    position: absolute;
+    right: -54rpx;
+    width: 200rpx;
+    z-index: 1;
+}
+
+.wrapper .photo {
+    border: 1px solid #f2f2f2;
+}
+
+.wrapper .bottom {
+    align-items: center;
+    background: #f2f6fc;
+    display: flex;
+    height: 160rpx;
+    justify-content: space-between;
+    padding: 42rpx 40rpx;
+}
+
+.wrapper .bottom .title {
+    color: #3c464f;
+    font-size: 28rpx;
+    font-weight: 700;
+    line-height: 36rpx;
+    margin-bottom: 4rpx;
+}
+
+.wrapper .bottom .infos {
+    color: #91979c;
+    font-size: 24rpx;
+    line-height: 36rpx;
+}
+
+.wrapper .bottom .infos text {
+    border-right: 1px solid #d8d9df;
+    display: inline-block;
+    height: 24rpx;
+    margin: 6rpx 16rpx;
+    vertical-align: top;
+    width: 0;
+}
+
+.save-btn {
+    background: #8280FF;
+    border-radius: 40rpx;
+    color: #fff;
+    font-size: 30rpx;
+    font-weight: 700;
+    height: 88rpx;
+    line-height: 88rpx;
+    margin: 0;
+    width: 150rpx;
+}
+
+.btn.btn-share {
+    bottom: 0;
+    height: 140rpx;
+    position: fixed;
+    width: 100%;
+    z-index: 20;
+}
+
+.btn.btn-share image {
+    height: 140rpx;
+    width: 750rpx;
+}

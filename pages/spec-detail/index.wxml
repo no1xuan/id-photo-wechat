@@ -1,0 +1,59 @@
+<header title="{{title}}"></header>
+
+<view class="info">
+  <view class="info-title">规则详情</view>
+  <view class="info-data">
+    <view class="info-data-title">照片尺寸</view>
+    <view class="info-data-content">{{detail.widthMm}}*{{detail.heightMm}}</view>
+  </view>
+  <view class="info-data">
+    <view class="info-data-title">照片规格</view>
+    <view class="info-data-content">{{detail.widthPx}}*{{detail.heightPx}}</view>
+  </view>
+  <view class="info-data">
+    <view class="info-data-title">照片底色</view>
+    <view class="info-data-content" style="display: flex; flex-direction: row;">
+      <view class="color white"></view>
+      <view class="color blue"></view>
+      <view class="color red"></view>
+       <view class="color rainbow"></view>
+    </view>
+  </view>
+  <view class="info-data">
+    <view class="info-data-title">文件大小</view>
+    <view class="info-data-content">不限制</view>
+  </view>
+</view>
+
+
+<view style="margin-top: 35rpx;">
+  <view style="display: flex; margin-left: 35rpx;">
+    <image src="../../assets/icon/guide_icon.png" style="width: 44rpx; height: 44rpx;"></image>
+    <view style="margin-left: 26rpx; font-weight: 700; font-size: 34rpx;">拍摄指南</view>
+  </view>
+  <swiper 
+    autoplay="true"
+    class="guide"
+  >
+    <swiper-item>
+      <image src="../../assets/icon/guide1.png" class="guide-item"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="../../assets/icon/guide2.png" class="guide-item"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="../../assets/icon/guide3.png" class="guide-item"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="../../assets/icon/guide4.png" class="guide-item"></image>
+    </swiper-item>
+    <swiper-item>
+      <image src="../../assets/icon/guide5.png" class="guide-item"></image>
+    </swiper-item>
+  </swiper>
+</view>
+
+<view class="bottom">
+    <button class="btn btn-left" bindtap="chooseImage">从相册中选择</button>
+    <button class="btn btn-right" bindtap="chooseCamera">拍摄</button>
+</view>
