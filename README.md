@@ -17,6 +17,7 @@
 # ⭐最近更新
     版本更新教程：https://www.bilibili.com/video/BV1xNUvYTEjo
 
+- 2024.12.06: 修复请求超时导致卡住的问题
 - 2024.11.29: 第一个版本诞生
 - 二次开发源码来自: https://github.com/pixzone/id-photo-wechat
 - 二开内容：全面接入证件照伴侣后端，去除原本复杂js，重写所有js，整理清晰目录，适配微信基础库版本：3.6.6，增加登录页，换底色更换成抠图

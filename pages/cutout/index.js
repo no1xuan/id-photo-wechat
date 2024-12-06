@@ -172,7 +172,6 @@ Page({
         token: wx.getStorageSync('token'),
       },
       method: 'POST',
-      timeout: 300000,
       success: (res) => {
         wx.hideLoading();
         if (res.data.code == 200) {

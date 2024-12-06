@@ -50,9 +50,5 @@
     "van-swipe-cell": "@vant/weapp/swipe-cell/index",
     "van-dialog": "@vant/weapp/dialog/index"
   },
-  "sitemapLocation": "sitemap.json",
-  "networkTimeout": {
-    "request": 10000,
-    "downloadFile": 10000
-  }
+  "sitemapLocation": "sitemap.json"
 }
