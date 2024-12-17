@@ -77,6 +77,23 @@
   border-radius: 20rpx;
 }
 
+.beauty-switch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 30rpx 35rpx;
+  padding: 20rpx 30rpx;
+  background: #FFFFFF;
+  border-radius: 20rpx;
+  box-shadow: -2rpx -2rpx 4rpx 2rpx rgba(0, 0, 0, 0.02), 2rpx 2rpx 4rpx 2rpx rgba(0, 0, 0, 0.02);
+}
+
+.beauty-switch text {
+  font-size: 34rpx;
+  font-weight: 700;
+  color: #434343;
+}
+
 .bottom { 
   bottom: 30rpx; 
   display: flex; 

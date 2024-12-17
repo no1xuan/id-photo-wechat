@@ -53,6 +53,11 @@
   </swiper>
 </view>
 
+<view class="beauty-switch">
+  <text>美颜</text>
+  <switch checked="{{isBeautyOn}}" bindchange="onBeautySwitch" color="#8280FF"/>
+</view>
+
 <view class="bottom">
     <button class="btn btn-left" bindtap="chooseImage">从相册中选择</button>
     <button class="btn btn-right" bindtap="chooseCamera">拍摄</button>

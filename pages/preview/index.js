@@ -9,16 +9,14 @@ Page({
     kb: 0,
     picUrl: "",
     color: "",
-    downloadOne: 1,
-    downloadTwo: 2,
+    downloadHd: 2,
     videoUnitId: 0,
-    rewardedVideoAd: null,
-    typeDownload: 1
+    rewardedVideoAd: null
   },
 
   onLoad() {
     this.getImageData();
-    this.getWeb();
+    this.getvideoUnit();
   },
 
   getImageData() {
@@ -40,20 +38,16 @@ Page({
       });
   },
 
-  getWeb() {
+  getvideoUnit() {
     wx.request({
-      url: app.url + 'api/getWeb',
-      header: {
-        "token": wx.getStorageSync("token")
-      },
+      url: app.url + 'api/getvideoUnit',
       method: "POST",
       success: (res) => {
         this.setData({
-          downloadOne: res.data.downloadOne,
-          downloadTwo: res.data.downloadTwo,
-          videoUnitId: res.data.videoUnitId
+          downloadHd: res.data.data.downloadHd,
+          videoUnitId: res.data.data.videoUnitId
         });
-        this.initRewardedVideoAd(res.data.videoUnitId);
+        this.initRewardedVideoAd(res.data.data.videoUnitId);
       }
     });
   },
@@ -109,7 +103,7 @@ Page({
     });
   },
 
-  // 调用广告，根据type区分下载，1普通，2高清
+//下载区分，根据type区分下载，1普通，2高清
   openSavePhoto(e) {
     if (this.data.colorType == 0) {
       wx.showToast({
@@ -119,22 +113,20 @@ Page({
       });
       return;
     }
-    this.setData({
-      typeDownload: e.currentTarget.dataset.type
-    });
 
-    // 普通下载没开启广告
-    if (this.data.downloadOne == 1 && e.currentTarget.dataset.type == 1) {
+    // 如果普通下载
+    if (e.currentTarget.dataset.type == 1) {
       this.saveNormalPhoto();
       return;
     }
-    // 高清下载没开启广告
-    if (this.data.downloadTwo == 1 && e.currentTarget.dataset.type == 2) {
+
+    //如果高清下载 但 没开启广告
+    if (this.data.downloadHd == 0 && e.currentTarget.dataset.type == 2) {
       this.saveHDPhoto();
       return;
     }
 
-    // 剩下都是开启广告了，弹出询问
+    // 如果高清下载 但 开启广告
     Dialog.confirm({
         title: '提示',
         message: '观看一次广告，才能下载哦，您每观看完一次广告都是对我们最大的帮助',
@@ -145,16 +137,12 @@ Page({
           // 尝试播放广告
           rewardedVideoAd.show().catch(() => {
             // 如果广告未加载成功，则重新加载并播放广告
-            this.loadRewardedVideoAd(e.currentTarget.dataset.type);
+            this.loadRewardedVideoAd();
           });
         } else {
           console.error('广告实例不存在');
           // 防止广告权限被封或无广告权限导致用户无法下载
-          if (this.data.typeDownload == 1) {
-            this.saveNormalPhoto();
-          } else {
-            this.saveHDPhoto()
-          }
+          this.saveHDPhoto();
         }
       })
       .catch(() => {
@@ -203,7 +191,8 @@ Page({
       data: {
         "image": this.data.imageData.oimg,
         "type": this.data.imageData.category == 4 ? 0 : 1,
-        "itemId": this.data.imageData.id
+        "itemId": this.data.imageData.id,
+        "isBeautyOn": this.data.imageData.isBeautyOn
       },
       header: {
         "token": wx.getStorageSync("token")
@@ -259,22 +248,14 @@ Page({
       rewardedVideoAd.onError((err) => {
         console.error('激励视频广告加载失败', err);
         // 用户可能观看广告上限，防止无法下载，仍发放奖励
-        if (this.data.typeDownload == 1) {
-          this.saveNormalPhoto();
-        } else {
-          this.saveHDPhoto()
-        }
+        this.saveHDPhoto();
       });
 
       // 监听广告关闭事件
       rewardedVideoAd.onClose((res) => {
         if (res && res.isEnded) {
           // 发放奖励
-          if (this.data.typeDownload == 1) {
-            this.saveNormalPhoto();
-          } else {
-            this.saveHDPhoto()
-          }
+          this.saveHDPhoto();
         } else {
           console.log('没看完广告，不发奖励');
           wx.showToast({
@@ -290,16 +271,12 @@ Page({
     } else {
       console.error('微信版本太低不支持激励视频广告');
       // 防止无法下载，所以仍然发放奖励
-      if (this.data.typeDownload == 1) {
-        this.saveNormalPhoto();
-      } else {
-        this.saveHDPhoto()
-      }
+      this.saveHDPhoto();
     }
   },
 
   // 加载激励视频广告
-  loadRewardedVideoAd(type) {
+  loadRewardedVideoAd() {
     const rewardedVideoAd = this.data.rewardedVideoAd;
     rewardedVideoAd
       .load()
@@ -307,11 +284,7 @@ Page({
       .catch((err) => {
         console.error('广告加载失败', err);
         // 看广告上限/网络失败，为了防止无法下载，仍发放奖励
-        if (type == 1) {
-          this.saveNormalPhoto();
-        } else {
-          this.saveHDPhoto()
-        }
+        this.saveHDPhoto();
       });
   }
 

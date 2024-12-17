@@ -144,7 +144,8 @@ Page({
       data: {
         "image": tu,
         "type": type,
-        "itemId": this.data.detail.id
+        "itemId": this.data.detail.id,
+        "isBeautyOn": this.data.detail.isBeautyOn
       },
       header: {
         "token": wx.getStorageSync("token")
@@ -155,10 +156,9 @@ Page({
         if (res.data.code == 200) {
           this.goEditPage(res.data.data);
         } else if (res.data.code == 404) {
-          console.log(res.data);
           wx.showToast({
             title: res.data.data,
-            icon: 'error'
+            icon: 'none'
           });
         } else {
           wx.navigateTo({
@@ -180,7 +180,8 @@ Page({
       id,
       name,
       widthMm,
-      widthPx
+      widthPx,
+      isBeautyOn
     } = this.data.detail
     wx.navigateTo({
       url: '/pages/preview/index',
@@ -193,7 +194,8 @@ Page({
           id,
           name,
           widthMm,
-          widthPx
+          widthPx,
+          isBeautyOn
         })
       }
     })

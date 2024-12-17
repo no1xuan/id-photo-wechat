@@ -8,6 +8,7 @@
     <view class="upload-photo" wx:if="{{isGenerated==1}}" bindtap="chooseImage">
         <image src="../../assets/cdn/plus-gray.png" style="width: 96rpx; height: 96rpx;"></image>
         <view style="font-size: 28rpx">上传照片</view>
+        <view style="font-size: 24rpx; color: #999; margin-top: 8rpx" wx:if="{{count!=null}}">今日免费剩余：{{count === -1 ? '无限次' : count + '次'}}</view>
     </view>
     <view class="upload-photo" wx:if="{{isGenerated==2}}">
         <image src="../../assets/cdn/right-black.png" style="width: 96rpx; height: 96rpx;"></image>
@@ -30,7 +31,7 @@
       />
     </view>
     <view class="btn-wrapper">
-      <button class="btn btn-blue" bindtap="imageDivision">生成</button>
+      <button class="btn btn-blue" bindtap="imageDivision">开始抠图</button>
     </view>
 </view>
 

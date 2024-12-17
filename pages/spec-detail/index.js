@@ -2,7 +2,9 @@ const app = getApp()
 Page({
     data: {
         detail: {},
-        title: ''
+        title: '',
+        isBeautyOn: 0,
+        openIsBeautyOn: 0
     },
 
     onLoad: function (options) {
@@ -12,6 +14,30 @@ Page({
           title: sizeDetail.name
         })
       },
+
+    onShow: function () {
+      this.getWebGlow();
+    },
+
+  // 美颜开关切换
+  onBeautySwitch(e) {
+    this.setData({
+      isBeautyOn: e.detail.value ? 1 : 0
+    })
+  },
+
+  //获取管理员是否开启美颜
+  getWebGlow() {
+    wx.request({
+      url: app.url + 'api/getWebGlow',
+      method: "POST",
+      success: (res) => {
+        this.setData({
+          openIsBeautyOn: res.data.data
+        });
+      }
+    });
+  },
 
   // 相册选择
   chooseImage() {
@@ -73,6 +99,7 @@ Page({
       widthMm,
       widthPx
     } = this.data.detail
+    const isBeautyOn = this.data.isBeautyOn
     //选择相机拍照
     wx.getSetting({
       success(res) {
@@ -87,7 +114,8 @@ Page({
                 id,
                 name,
                 widthMm,
-                widthPx
+                widthPx,
+                isBeautyOn: isBeautyOn
               })
             }
           })
@@ -166,7 +194,8 @@ Page({
       data: {
         "image": tu,
         "type": this.data.detail.category == 4 ? 0 : 1,
-        "itemId": this.data.detail.id
+        "itemId": this.data.detail.id,
+        "isBeautyOn": this.data.isBeautyOn
       },
       header: {
         "token": wx.getStorageSync("token")
@@ -177,10 +206,9 @@ Page({
         if (res.data.code == 200) {
           this.goEditPage(res.data.data);
         } else if (res.data.code == 404) {
-          console.log(res.data);
           wx.showToast({
             title: res.data.data,
-            icon: 'error'
+            icon: 'none'
           });
         } else {
           wx.navigateTo({
@@ -202,6 +230,7 @@ Page({
       widthMm,
       widthPx
     } = this.data.detail
+    const isBeautyOn = this.data.isBeautyOn
     wx.navigateTo({
       url: '/pages/preview/index',
       success: function (res) {
@@ -213,7 +242,8 @@ Page({
           id,
           name,
           widthMm,
-          widthPx
+          widthPx,
+          isBeautyOn: isBeautyOn
         })
       }
     })
