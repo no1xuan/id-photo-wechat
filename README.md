@@ -1,7 +1,7 @@
 # 项目介绍
 
 # <p align="center">证件照伴侣</p>
-<p align="center">快图证件照前端，焕然一新，活力十足</p>
+<p align="center">2025我们一起加油，心如所愿，梦想成真.</p>
 <p align="center"><img src="./assets/readme/1.png"></p>
 
 
