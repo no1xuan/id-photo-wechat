@@ -9,7 +9,8 @@
     "pages/album/index",
     "pages/album-detail/index",
     "pages/login/index",
-    "pages/cutout/index"
+    "pages/cutout/index",
+    "pages/admin/index"
   ],
   "window": {
     "backgroundTextStyle": "light",
